@@ -66,7 +66,12 @@ export default class AppleTokenStrategy extends OAuth2Strategy {
    * @returns {*}
    */
   authenticate(req, options) {
-    const identityToken = (req.body && req.body[this._identityTokenField]) || (req.query && req.query[this._identityTokenField]);
+    const header = (() => {
+        const bearerRE = /Bearer (.*)/;
+        const match = bearerRE.exec(req.headers.authorization);
+        return (match && match[1]);
+      })();
+    const identityToken = req.body && req.body[this._identityTokenField] || req.query && req.query[this._identityTokenField] || header;
     let user = (req.body && req.body.user) || (req.query && req.query.user);
 
     if (!identityToken) return this.fail({message: `You should provide ${this._identityTokenField}`});
