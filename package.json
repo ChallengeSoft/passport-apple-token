@@ -1,5 +1,5 @@
 {
-  "name": "@mrbatista/passport-apple-token",
+  "name": "@challengesoft/passport-apple-token",
   "version": "1.0.0",
   "description": "Passport strategy for authenticating with Apple via identity token",
   "main": "lib/index.js",
