@@ -2,7 +2,7 @@
   "name": "@challengesoft/passport-apple-token",
   "version": "1.0.0",
   "description": "Passport strategy for authenticating with Apple via identity token",
-  "main": "lib/index.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
     "coveralls": "cat coverage/lcov.info | coveralls",
